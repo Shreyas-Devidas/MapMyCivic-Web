@@ -1,3 +1,6 @@
+import ResolvedCategoryPieChart from "../components/ResolvedCategoryPieChart";
+import StatsLineChart from "../components/StatsLineChart";
+import IssuePieChart from "../components/IssuePieChart";
 import Navbar from "../components/Navbar";
 import { issues } from "../data/issues";
 
@@ -35,6 +38,33 @@ function AdminPanel() {
     issue => issue.status === "Critical"
   );
 
+  // 📊 Date-wise stats
+const statsMap = {};
+
+issues.forEach(issue => {
+  const date = issue.date || "Unknown";
+
+  if (!statsMap[date]) {
+    statsMap[date] = { date, resolved: 0, pending: 0, progress: 0, critical: 0 };
+  }
+
+  if (issue.status === "Resolved") statsMap[date].resolved++;
+  else if (issue.status === "In Progress") statsMap[date].progress++;
+  else if (issue.status === "Critical") statsMap[date].critical++;
+  else statsMap[date].pending++;
+});
+
+const statsData = Object.values(statsMap).sort((a,b) => {
+  return new Date(a.date) - new Date(b.date);
+});
+
+// 🥧 Pie data
+const pieStats = {
+  resolved: resolved,
+  pending: total - resolved - progress,
+  progress: progress
+};
+
   return (
     <div className="bg-gray-100 min-h-screen">
 
@@ -60,37 +90,22 @@ function AdminPanel() {
 
         </div>
 
-        {/* STATS */}
+      
+        {/* 📊 Charts Section */}
+        
+        <div className=" gap-6 mb-8">
 
-        <div className="grid grid-cols-4 gap-6 mb-8">
-
-          <div className="bg-white p-6 rounded-xl border">
-            <p className="text-gray-500">Total Issues</p>
-            <h2 className="text-3xl font-bold">{total}</h2>
-          </div>
-
-          <div className="bg-white p-6 rounded-xl border">
-            <p className="text-gray-500">Resolved</p>
-            <h2 className="text-3xl font-bold text-green-600">
-              {resolved}
-            </h2>
-          </div>
-
-          <div className="bg-white p-6 rounded-xl border">
-            <p className="text-gray-500">In Progress</p>
-            <h2 className="text-3xl font-bold text-yellow-500">
-              {progress}
-            </h2>
-          </div>
-
-          <div className="bg-white p-6 rounded-xl border">
-            <p className="text-gray-500">Critical</p>
-            <h2 className="text-3xl font-bold text-red-500">
-              {critical}
-            </h2>
-          </div>
+            <StatsLineChart issues={issues} />
 
         </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+
+            <ResolvedCategoryPieChart issues={issues} />
+
+            <IssuePieChart data={pieStats} />
+
+        </div>
+        
 
         {/* PERFORMANCE + CATEGORY */}
 

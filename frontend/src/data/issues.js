@@ -3,6 +3,7 @@ export const issues = [
     id: 1,
     category: "Road Damage",
     status: "Critical",
+    date: "Mar 09",
     title: "Large pothole on MG Road near City Mall",
     description:
       "Deep pothole causing traffic hazard. Multiple vehicles damaged. Immediate repair needed.",
@@ -18,6 +19,7 @@ export const issues = [
     id: 2,
     category: "Waste Management",
     status: "In Progress",
+    date: "Mar 10",
     title: "Overflowing garbage bins at Market Square",
     description:
       "Garbage bins overflowing for 3 days. Stray animals scattering waste. Health hazard.",
@@ -33,6 +35,7 @@ export const issues = [
     id: 3,
     category: "Street Lighting",
     status: "Pending",
+    date: "Mar 11",
     title: "Broken streetlight on Park Avenue",
     description:
       "Street light non-functional for a week. Dark stretch creating safety concerns at night.",
@@ -48,6 +51,7 @@ export const issues = [
     id: 4,
     category: "Water Supply",
     status: "In Progress",
+    date: "Mar 12",
     title: "Water pipeline leak at Nehru Nagar",
     description:
       "Major water leak from underground pipeline. Water flowing onto road causing waterlogging.",
@@ -63,6 +67,7 @@ export const issues = [
     id: 5,
     category: "Encroachment",
     status: "Pending",
+    date: "Mar 13",
     title: "Illegal encroachment on public footpath",
     description:
       "Vendors blocking entire footpath. Pedestrians forced to walk on road.",
@@ -78,6 +83,7 @@ export const issues = [
     id: 6,
     category: "Tree Hazard",
     status: "Resolved",
+    date: "Mar 14",
     title: "Fallen tree blocking residential lane",
     description:
       "Large tree fell during storm. Lane completely blocked. Removed within 12 hours.",
@@ -93,6 +99,7 @@ export const issues = [
     id: 7,
     category: "Drainage",
     status: "Critical",
+    date: "Mar 15",
     title: "Open drain cover missing near school",
     description:
       "Drain cover missing near primary school. Extreme danger for children walking to school.",
@@ -108,6 +115,7 @@ export const issues = [
     id: 8,
     category: "Traffic",
     status: "Resolved",
+    date: "Mar 16",
     title: "Traffic signal malfunction at main junction",
     description:
       "All signals showing green simultaneously causing confusion and near-accidents.",
@@ -123,6 +131,7 @@ export const issues = [
     id: 9,
     category: "Waste Management",
     status: "Pending",
+    date: "Mar 17",
     title: "Garbage accumulation behind shopping complex",
     description:
       "Garbage not collected for several days leading to foul smell and pest problems.",
@@ -138,6 +147,7 @@ export const issues = [
     id: 10,
     category: "Road Damage",
     status: "Pending",
+    date: "Mar 18",
     title: "Cracked road surface causing uneven driving",
     description:
       "Road surface deteriorating rapidly causing vehicle instability and minor accidents.",
